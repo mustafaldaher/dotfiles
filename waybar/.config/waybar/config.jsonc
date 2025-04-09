@@ -3,7 +3,9 @@
   "modules-left": [
     "hyprland/workspaces"
   ],
-  "modules-center": [],
+  "modules-center": [
+    "hyprland/window"
+  ],
   "modules-right": [
     "network",
     "pulseaudio",
@@ -11,7 +13,8 @@
     "clock"
   ],
   "clock": {
-    "format": "<span foreground='#f5c2e7'>   </span>{:%a %d %H:%M}"
+    "format": "<span foreground='#f5c2e7'>   </span>{:%a %d %H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
   "battery": {
     "states": {
@@ -31,13 +34,16 @@
       "",
       "",
       ""
-    ]
+    ],
+    "tooltip-format": "{time}"
   },
   "network": {
-    "format-wifi": "<span size='13000' foreground='#ff00ff'>  </span>{essid}",
-    "format-ethernet": "<span size='13000' foreground='#ff00ff'>󰈀  </span>{ipaddr}/{cidr}",
-    "format-linked": "<span size='13000' foreground='#ff00ff'>  </span>{ifname} (No IP)",
-    "format-disconnected": "<span size='13000' foreground='#ff00ff'>  </span>Disconnected",
+    "format-wifi": "<span size='13000' foreground='#f9e2af'>  </span>{essid}",
+    "format-ethernet": "<span size='13000' foreground='#f9e2af'>󰈀  </span>{ipaddr}/{cidr}",
+    "format-linked": "<span size='13000' foreground='#f9e2af'>  </span>{ifname} (No IP)",
+    "format-disconnected": "<span size='13000' foreground='#f9e2af'>  </span>Disconnected",
+    "tooltip-format-wifi": "SSID: {essid}\nSignal Strength: {signalStrength}%",
+    "tooltip-format-ethernet": "Interface: {ifname}\nIP: {ipaddr}"
   },
   "pulseaudio": {
     "format": "{icon}  {volume}%",
@@ -48,6 +54,7 @@
         "",
         " "
       ]
-    }
+    },
+    "on-click": "pavucontrol"
   }
 }
